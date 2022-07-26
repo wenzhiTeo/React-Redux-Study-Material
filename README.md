@@ -1,5 +1,8 @@
-# react-redux-study-material
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# React-Redux-Study-Material
+
+This project included 2 App which applied the basic concept of react-redux
+- Counter App
+- A simple shopping cart app (https://www.youtube.com/watch?v=zrs7u6bdbUw&list=LL&index=1&ab_channel=freeCodeCamp.org)
 
 ## Available Scripts
 
