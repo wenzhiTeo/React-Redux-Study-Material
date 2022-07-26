@@ -10,7 +10,7 @@ const Layout = () => {
 
   const itemList = useSelector((state) => state.cart.itemList);
 
-  itemList.forEach((element) => {
+  itemList?.forEach((element) => {
     total += element.totalPrice;
   });
 
@@ -19,7 +19,7 @@ const Layout = () => {
   return (
     <React.Fragment>
       <div className="layout">
-        <Header />
+        <Header isReduxStore={true} />
         <Products />
         {showCart && <CartItems />}
         <div className="total-price">

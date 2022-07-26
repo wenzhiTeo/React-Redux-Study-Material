@@ -5,7 +5,7 @@ import Auth from "../../components/Auth";
 import Layout from "../../components/Layout";
 import Notification from "../../components/Notification";
 import { fetchCartData, sendCartData } from "../../store/cart-actions";
-//import { uiActions } from "../../store/ui-slice";
+// import { uiActions } from "../../store/ui-slice";
 
 let isFirstRender = true;
 
@@ -15,6 +15,7 @@ function StoreApp() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const cart = useSelector((state) => state.cart);
 
+  //thunk & action creator
   useEffect(() => {
     dispatch(fetchCartData());
   }, [dispatch]);
@@ -25,7 +26,7 @@ function StoreApp() {
       return;
     }
 
-    //thunk & action creator
+    // thunk & action creator
     if (cart.isUpdated) dispatch(sendCartData(cart));
 
     // const sendRequest = async () => {

@@ -6,7 +6,7 @@ import { authActions } from "../store/auth-slice";
 import Cart from "./Cart";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ isReduxStore }) => {
   const dispatch = useDispatch();
   const logoutHandler = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ const Header = () => {
               style={{ fontFamily: "monospace", fontSize: "30px" }}
             >
               <Link to="/" style={{ textDecoration: "none" }}>
-                Redux Shopping App
+                Redux Shopping Cart
               </Link>
             </h2>
           </li>
@@ -33,19 +33,33 @@ const Header = () => {
               style={{ fontFamily: "monospace", fontSize: "20px" }}
             >
               <Link to="/counter" style={{ textDecoration: "none" }}>
-                {"> Go to Counter App"}
+                {"Redux Counter"}
+              </Link>
+            </h2>
+          </li>
+          <li>
+            <h2
+              className="header-h3"
+              style={{ fontFamily: "monospace", fontSize: "20px" }}
+            >
+              <Link to="/saga_usecase" style={{ textDecoration: "none" }}>
+                {"Redux Saga"}
               </Link>
             </h2>
           </li>
 
-          <li>
-            <Cart />
-          </li>
-          <li>
-            <button onClick={logoutHandler} className="logoutBtn">
-              Logout
-            </button>
-          </li>
+          {isReduxStore && (
+            <>
+              <li>
+                <Cart />
+              </li>
+              <li>
+                <button onClick={logoutHandler} className="logoutBtn">
+                  Logout
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

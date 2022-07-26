@@ -1,5 +1,5 @@
-import { uiActions } from "./ui-slice";
-import { cartActions } from "./cart-slice";
+import { showNotification } from "./ui-slice";
+import { replaceData } from "./cart-slice";
 
 export const fetchCartData = () => {
   return async (dispatch) => {
@@ -13,10 +13,10 @@ export const fetchCartData = () => {
 
     try {
       const cart = await fetchHandler();
-      dispatch(cartActions.replaceData(cart));
+      dispatch(replaceData(cart));
     } catch (error) {
       dispatch(
-        uiActions.showNotification({
+        showNotification({
           isDisplay: true,
           message: "Fetch Cart Data Failed",
           type: "error",
@@ -29,7 +29,7 @@ export const fetchCartData = () => {
 export const sendCartData = (cart) => {
   return async (dispatch) => {
     dispatch(
-      uiActions.showNotification({
+      showNotification({
         isDisplay: true,
         message: "Sending Request",
         type: "warning",
@@ -47,7 +47,7 @@ export const sendCartData = (cart) => {
       const data = await res.json();
       console.log(data);
       dispatch(
-        uiActions.showNotification({
+        showNotification({
           isDisplay: true,
           message: "Send Request Successfully",
           type: "success",
@@ -59,7 +59,7 @@ export const sendCartData = (cart) => {
       await sendRequest();
     } catch (err) {
       dispatch(
-        uiActions.showNotification({
+        showNotification({
           isDisplay: true,
           message: "Send Request Failed",
           type: "error",

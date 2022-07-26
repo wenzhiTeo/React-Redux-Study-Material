@@ -16,4 +16,6 @@ const uiSlice = createSlice({
 
 export const uiActions = uiSlice.actions;
 
+export const {showNotification} = uiSlice.actions;
+
 export default uiSlice;
